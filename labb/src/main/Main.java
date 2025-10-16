@@ -18,15 +18,12 @@ public class Main {
 				System.out.println("Invalid option, try again!");
 			}
 		}
-		boolean Logged_In = false;
 		if (choice == 1) {
-			Logged_In = true;
+			//Call Login Class.
 		}
 		else {
 			//Call Guest Class.
 		}
-		
-		System.out.println("Enter your username: ");
 		
 		
 	}
