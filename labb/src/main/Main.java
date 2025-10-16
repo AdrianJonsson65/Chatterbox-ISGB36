@@ -20,6 +20,7 @@ public class Main {
 				break;
 			case 2:
 				//Call Message.viewAll();
+				Guest.runGuest(args); //Testrad - ta bort
 				break;
 			default:
 				System.out.println("Please enter a valid option!");
