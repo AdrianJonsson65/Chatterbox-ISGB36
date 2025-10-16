@@ -19,7 +19,7 @@ public class Main {
 				//Call Login Class.
 				break;
 			case 2:
-				//Call Guest Class.
+				//Call Message.viewAll();
 				break;
 			default:
 				System.out.println("Please enter a valid option!");
