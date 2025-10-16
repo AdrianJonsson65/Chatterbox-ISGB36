@@ -14,18 +14,16 @@ public class Main {
 			System.out.println("Select option 1 or 2 to Continue");
 			
 			choice = scan.nextInt();
-			if (choice != 1 && choice != 2) {
-				System.out.println("Invalid option, try again!");
+			switch (choice) {
+			case 1:
+				//Call Login Class.
+				break;
+			case 2:
+				//Call Guest Class.
+				break;
+			default:
+				System.out.println("Please enter a valid option!");
 			}
-		}
-		if (choice == 1) {
-			//Call Login Class.
-		}
-		else {
-			//Call Guest Class.
-		}
-		
-		
+		}	
 	}
-
 }
