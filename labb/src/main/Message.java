@@ -5,11 +5,11 @@ public class Message {
 
 	private int mId;
 	private String text;
-	private User_login author;
+	private User_Login author;
 	private Date date;
 	
 	
-	public Massage(int mId,String text, User_login author, Date date) {
+	public void Massage(int mId,String text, User_Login author, Date date) {
 		setmId(mId);
 		setText(text);
 		setAuthor(author);
@@ -40,11 +40,11 @@ public class Message {
 		this.date = date;
 	}
 	
-	public String createMessage() {
+	/*public String createMessage() {
 		
 	}
 	
 	public String readMassage() {
 		
-	}
+	}*/
 }
