@@ -20,6 +20,8 @@ public class User_Login {
 		this.password = password;
 		//setRole(role);
 		this.role = role;
+		
+		messages = new Message[0];
 	}
 	
 	
@@ -30,6 +32,10 @@ public class User_Login {
 		}else {
 			this.name = name;
 		}
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 	
 	public void setUsername() {
@@ -55,6 +61,19 @@ public class User_Login {
 	
 	public String getPassword() {
 		return this.password;
+	}
+	
+	public void addOwnMessage(String text, Object obj) {
+		
+		messages = Arrays.copyOf(messages, messages.length + 1);
+		messages[messages.length - 1].setText(text);
+		messages[messages.length - 1].setAuthor(this);
+		messages[messages.length - 1].setDate(new Date());
+		messages[messages.length - 1].setmId(messages.length -1);
+	}
+	
+	public String [] getOwnMessages(){
+		return messages;
 	}
 
 }

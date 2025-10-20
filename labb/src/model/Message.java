@@ -5,16 +5,22 @@ public class Message {
 
 	private int mId;
 	private String text;
-	private User_Login author;
+	private String author;
 	private Date date;
 	
-	
-	public void Massage(int mId,String text, User_Login author, Date date) {
+	//Constructors
+	public Message(int mId,String text, User_Login author, Date date) {
 		setmId(mId);
 		setText(text);
 		setAuthor(author);
 		setDate(date);
 	}
+	
+	public Message(String text) {
+		this.text = text;
+	}
+	
+	
 	//Setters 
 	public void setmId(int id) {
 		if (equals(id)) {
@@ -32,8 +38,8 @@ public class Message {
 		}
 	}
 	
-	public void setAuthor(User_Login author) {
-		this.author = author;	
+	public void setAuthor(User_Login obj) {
+		this.author = obj.getName();	
 	}
 	
 	public void setDate(Date date) {
