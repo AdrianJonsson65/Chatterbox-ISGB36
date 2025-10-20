@@ -7,6 +7,8 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		int choice = 0;
 		
+		User_Login john = new User_Login("John Nash","jnash","123","user");
+		
 		while (choice != 1 && choice != 2) {
 			System.out.println("Choose an option: ");
 			System.out.println("1 - Login");
@@ -20,10 +22,24 @@ public class Main {
 		}
 		if (choice == 1) {
 			//Call Login Class.
+			//Scanner Scan = new Scanner(System.in);
+			
+			System.out.println("Ange username");
+			String username = scan.next();
+			System.out.println("Ange password");
+			String password = scan.next();
+			
+			if(username.equals(john.getUsername()) && password.equals(john.getPassword())) {
+				System.out.println("Användaren finns");
+			} else {
+				System.out.println("Användare finns inte");
+			}
 		}
 		else {
 			//Call Guest Class.
 		}
+		
+		
 		
 		
 	}
