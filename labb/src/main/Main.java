@@ -1,5 +1,8 @@
 package main;
 import java.util.Scanner;
+import model.*;
+import view.*;
+import controler.*;
 
 public class Main {
 
