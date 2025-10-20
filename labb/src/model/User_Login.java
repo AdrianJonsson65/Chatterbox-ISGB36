@@ -56,5 +56,12 @@ public class User_Login {
 	public String getPassword() {
 		return this.password;
 	}
+	
+	public static User_Login []users = {
+			new User_Login("John Nash", "jnash", "123", "User"),
+			new User_Login("Timmy Hjelm", "thjelm", "123", "User"),
+			new User_Login("Linus Lokgård", "llokgard", "123", "User"),
+			new User_Login("Adrian Jonsson", "ajonsson", "123", "User")
+	};
 
 }

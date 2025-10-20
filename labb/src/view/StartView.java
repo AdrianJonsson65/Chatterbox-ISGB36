@@ -16,14 +16,18 @@ public class StartView {
 			choice = scan.nextInt();
 			switch (choice) {
 			case 1:
+				System.out.println("Choice 1 - CONFIRMATION MESSAGE");
 				//Login.LoginView();
 				break;
 			case 2:
+				System.out.println("Choice 2 - CONFIRMATION MESSAGE");
 				//Message.viewAll(); 
 				break;
 			default:
+				System.out.println("Invalid Choice - CONFIRMATION MESSAGE");
 				System.out.println("Please enter a valid option!");
 			}
-		}	
+		}
+		scan.close();
 	}
 }
