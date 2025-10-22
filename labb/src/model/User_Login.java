@@ -1,8 +1,5 @@
 package model;
 
-import java.math.*;
-import java.util.*;
-
 public class User_Login {
 
 	private String name;
@@ -11,8 +8,14 @@ public class User_Login {
 	private String role;
 	private Message[] messages;
 	
+<<<<<<< HEAD
 	
 	//Constructor
+=======
+	/*
+	 * User_Login Model
+	 */
+>>>>>>> main
 	public User_Login(String name, String username, String password, String role) {
 		//setName(name);
 		this.name = name;
@@ -26,6 +29,7 @@ public class User_Login {
 		messages = new Message[0];
 	}
 	
+<<<<<<< HEAD
 	
 	//Setters
 	public void setName(String name) {
@@ -54,6 +58,8 @@ public class User_Login {
 	}
 	
 	//Getters
+=======
+>>>>>>> main
 	public String getUsername() {
 		return this.username;
 	}
@@ -62,6 +68,7 @@ public class User_Login {
 		return this.password;
 	}
 	
+<<<<<<< HEAD
 	//Functions
 	public void addOwnMessage(String text) {
 		
@@ -89,5 +96,13 @@ public class User_Login {
 		}
 		return ownMessages;
 	}
+=======
+	public static User_Login []users = {
+			new User_Login("John Nash", "jnash", "123", "User"),
+			new User_Login("Timmy Hjelm", "thjelm", "123", "User"),
+			new User_Login("Linus Lokgård", "llokgard", "123", "User"),
+			new User_Login("Adrian Jonsson", "ajonsson", "123", "User")
+	};
+>>>>>>> main
 
 }
