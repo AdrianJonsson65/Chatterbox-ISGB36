@@ -11,6 +11,8 @@ public class User_Login {
 	private String role;
 	private Message[] messages;
 	
+	
+	//Constructor
 	public User_Login(String name, String username, String password, String role) {
 		//setName(name);
 		this.name = name;
@@ -25,13 +27,9 @@ public class User_Login {
 	}
 	
 	
-	
+	//Setters
 	public void setName(String name) {
-		if(name.length() <= 2) {
-			System.out.println("*Name has to be more than 2 letters");
-		}else {
 			this.name = name;
-		}
 	}
 	
 	public String getName() {
@@ -55,6 +53,7 @@ public class User_Login {
 		}
 	}
 	
+	//Getters
 	public String getUsername() {
 		return this.username;
 	}
@@ -63,7 +62,8 @@ public class User_Login {
 		return this.password;
 	}
 	
-	public void addOwnMessage(String text, Object obj) {
+	//Functions
+	public void addOwnMessage(String text) {
 		
 		messages = Arrays.copyOf(messages, messages.length + 1);
 		messages[messages.length - 1].setText(text);
@@ -72,8 +72,22 @@ public class User_Login {
 		messages[messages.length - 1].setmId(messages.length -1);
 	}
 	
-	public String [] getOwnMessages(){
-		return messages;
+	
+	
+	public String [] getOwnMessages(List messages, User_Login obj){
+		int i = 0;
+		Message [] mess = new Message[messages.size()];
+		for(int j = 0; j < messages.size(); j++) {
+			mess[j] = (Message) messages.get(j);
+		}
+		String [] ownMessages = new String[i];
+		for (Message m : mess) {
+			if(m.getAuthor().equals(obj.getName())) {
+				i++;
+				ownMessages[i-1] = m.toString();
+			}
+		}
+		return ownMessages;
 	}
 
 }

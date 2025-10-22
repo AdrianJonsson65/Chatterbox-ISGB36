@@ -6,10 +6,15 @@ import model.*;
 public class MessageControler {
 	private List<Message> messages = new ArrayList<>();
 	
-	public void createMessage(String text) {
+	public void createMessage(String text, User_Login obj) {
 		Message m = new Message(text);
 		if (text != null) {
 			messages.add(m);
+			Message [] mess = new Message[messages.size()];
+			for(int i = 0; i < messages.size(); i++) {
+				mess[i] = (Message) messages.get(i);
+			}
+			m.createMessage(text, obj, mess );
 			System.out.println("Message created!");
 			
 		}else {
@@ -31,7 +36,7 @@ public class MessageControler {
 		return new ArrayList(messages);
 	}
 	
-	public String [] getAllOwnMessages(User_Login author){
-		return author.getOwnMessages();
+	public String [] getAllOwnMessages(List messages, User_Login author){
+		return author.getOwnMessages(messages, author);
 	}
 }
