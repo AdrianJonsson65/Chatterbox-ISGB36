@@ -7,7 +7,7 @@ public class AuthController {
 			if (UL.getUsername().equals(username) && UL.getPassword().equals(password)) {
 				return UL;
 			}
-			}
+		}
 		return null;
 	}
 }
