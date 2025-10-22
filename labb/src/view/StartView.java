@@ -17,7 +17,7 @@ public class StartView {
 			switch (choice) {
 			case 1:
 				System.out.println("Choice 1 - CONFIRMATION MESSAGE");
-				//Login.LoginView();
+				new LoginView();
 				break;
 			case 2:
 				System.out.println("Choice 2 - CONFIRMATION MESSAGE");
@@ -28,6 +28,5 @@ public class StartView {
 				System.out.println("Please enter a valid option!");
 			}
 		}
-		scan.close();
 	}
 }

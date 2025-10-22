@@ -1,8 +1,5 @@
 package model;
 
-import java.math.*;
-import java.util.*;
-
 public class User_Login {
 
 	private String name;
@@ -11,6 +8,9 @@ public class User_Login {
 	private String role;
 	private Message[] messages;
 	
+	/*
+	 * User_Login Model
+	 */
 	public User_Login(String name, String username, String password, String role) {
 		//setName(name);
 		this.name = name;
@@ -20,33 +20,6 @@ public class User_Login {
 		this.password = password;
 		//setRole(role);
 		this.role = role;
-	}
-	
-	
-	
-	public void setName(String name) {
-		if(name.length() <= 2) {
-			System.out.println("*Name has to be more than 2 letters");
-		}else {
-			this.name = name;
-		}
-	}
-	
-	public void setUsername() {
-		String[] uName = this.name.split("\\s");
-		int randomNr = (int)(Math.random() * 500)+1;
-		String username = uName[0] + randomNr;
-		String lowCaseUname = username.toLowerCase();
-			this.username = lowCaseUname;
-		
-	}
-	
-	public void setPassword(String password) {
-		if(name.length() <= 2) {
-			System.out.println("*Password has to be more than 2 character");
-		}else {
-			this.password = password;
-		}
 	}
 	
 	public String getUsername() {
