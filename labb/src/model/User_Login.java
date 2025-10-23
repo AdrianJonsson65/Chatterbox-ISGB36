@@ -69,6 +69,9 @@ public class User_Login {
 		return this.messages;
 	}
 	
+	public Message [] getOwnMessages(User_Login obj){
+		return obj.getMessages();
+	}
 
 	//Functions
 	public void addOwnMessage(String text, User_Login obj) {
@@ -82,11 +85,19 @@ public class User_Login {
 		messages[messages.length - 1] = newMsg;
 	}
 	
-	
-	
-	public Message [] getOwnMessages(User_Login obj){
-		return obj.getMessages();
+	public void deleteOwnMessage(String mId, User_Login obj) {
+		int id = Integer.parseInt(mId);
+		Message [] firstMessages = new Message[(messages.length -2) /2];
+		//Message [] secondMessages = new Message[(messages.length -2) /2];
+		firstMessages = Arrays.copyOfRange(messages, 0, id - 1);
+		//secondMessages = Arrays.copyOfRange(messages, id, messages.length);
+		
+		messages = firstMessages;
 	}
+	
+	
+	
+	
 	
 	public static User_Login []users = {
 			new User_Login("John Nash", "jnash", "123", "User"),

@@ -88,21 +88,27 @@ public class Message {
 		messages = newMessages;
 		return newMessages;
 	}
-	
+	/*
 	public Message [] deleteMessage(String mId, User_Login obj) {
 		int id = Integer.parseInt(mId);
-		Message[] delMessages = this.getAllMessages();
-		messages = null;
+		Message[] delMessages = messages;
+		Message [] newMessages = new Message[messages.length - 2];
 		for (Message m : delMessages) {
-			if(m.getMId() == id) {
-				continue;
+			if(m.getMId() == id && m.getAuthor() == obj) {
+				System.out.println("Message deleted: " + m.toString() );
+				m = null;
+			}else if(id != m.getMId()){
+				System.out.println("Hittade inte id nu\n");
+				newMessages = m.addMessage(m.getText(), obj);
 			}else {
-				messages = m.addMessage(m.getText(), obj);
+				System.out.println("else");
+				
 			}
 		}
-		return messages;
+		messages = newMessages;
+		return newMessages;
 	}
-	
+	*/
 	
 	public static Message[] messages = {
 		new Message(1,"Hej det är ett test", new Date()),

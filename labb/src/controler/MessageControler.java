@@ -22,6 +22,12 @@ public class MessageControler {
 		
 	}
 	/*
+	public void deleteMessage(String mId, User_Login obj) {
+		mess.deleteMessage(mId, obj);
+		obj.deleteOwnMessage(mId,obj);
+		
+	}*/
+	/*
 	public void deleteMessages(int index) {
 		if (index >= 0 && index < messages.size()) {
 			messages.remove(index);
