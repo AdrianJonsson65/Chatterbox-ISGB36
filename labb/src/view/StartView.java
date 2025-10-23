@@ -4,8 +4,10 @@ import java.util.Scanner;
 public class StartView {
 
 	public StartView(final String[] args) {
+		 LoginView loginview = new LoginView();
 		Scanner scan = new Scanner(System.in);
 		int choice = 0;
+		
 		
 		while (choice != 1 && choice != 2) {
 			System.out.println("Choose an option: ");
@@ -17,7 +19,7 @@ public class StartView {
 			switch (choice) {
 			case 1:
 				System.out.println("Choice 1 - CONFIRMATION MESSAGE");
-				new LoginView();
+				loginview.login();
 				break;
 			case 2:
 				System.out.println("Choice 2 - CONFIRMATION MESSAGE");

@@ -7,6 +7,7 @@ public class Message {
 	private String text;
 	private User_Login author;
 	private Date date;
+	User_Login user;
 	
 	//Constructors
 	public Message(int mId,String text, User_Login author, Date date) {
@@ -20,6 +21,13 @@ public class Message {
 		this.text = text;
 	}
 	
+	public Message(int mId, String text, Date date) {
+		this.mId = mId;
+		this.text = text;
+		this.date = date;
+	}
+	
+	public Message() {}
 	
 	//Setters 
 	public void setmId(int id) {
@@ -34,9 +42,8 @@ public class Message {
 		}
 	}
 	
-	public void setAuthor(Object obj) {
-		User_Login u = (User_Login) obj;
-		this.author.setName(u.getName());
+	public void setAuthor(User_Login obj) {
+		this.author = obj;
 	}
 	
 	public void setDate(Date date) {
@@ -44,28 +51,69 @@ public class Message {
 	}
 	
 	// Getters
-	public String getAuthor() {
-		return this.author.getName();
+	public User_Login getAuthor() {
+		return this.author;
 	}
+	
+	public int getMId() {
+		return this.mId;
+	}
+	
+	public String getText() {
+		return this.text;
+	}
+	
+	public Date getDate() {
+		return this.date;
+	}
+	
+	public Message[] getAllMessages() {
+		return messages;
+	}
+	
+	//Functions
 	public void createMessage(String text, User_Login obj, Message [] messages) {
 		this.text = text;
-		this.mId = messages.length;
-		this.author.setName(obj.getName());
+		this.mId = messages.length + 1;
+		this.author = obj;
 		this.date = new Date();
 		
 	}
 	
-	public Message [] addMessage(String text, Message [] messages, User_Login user) {
-		messages = Arrays.copyOf(messages, messages.length + 1);
-		messages[messages.length - 1].createMessage(text, user, messages);
+	public Message [] addMessage(String text, User_Login user) {
+		Message[] newMessages =  Arrays.copyOf(messages, messages.length + 1);
+		Message newMsg = new Message();
+		newMsg.createMessage(text, user, messages);
+		newMessages[newMessages.length - 1] = newMsg;
+		messages = newMessages;
+		return newMessages;
+	}
+	
+	public Message [] deleteMessage(String mId, User_Login obj) {
+		int id = Integer.parseInt(mId);
+		Message[] delMessages = this.getAllMessages();
+		messages = null;
+		for (Message m : delMessages) {
+			if(m.getMId() == id) {
+				continue;
+			}else {
+				messages = m.addMessage(m.getText(), obj);
+			}
+		}
 		return messages;
 	}
 	
 	
+	public static Message[] messages = {
+		new Message(1,"Hej det är ett test", new Date()),
+		new Message(2,"Test 2", new Date()),
+		new Message(3,"Test 3", new Date())
+	};
+	
 	
 	@Override
 	public String toString() {
-		return "" + this.text + " \n";
+		return this.mId + "\n Published by: " + this.author + "\n " + this.text + "\n " + this.date + "; \n";
 	}
 	
 	@Override

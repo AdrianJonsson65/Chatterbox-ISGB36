@@ -2,27 +2,26 @@ package controler;
 
 import java.util.*;
 import model.*;
+import view.LoginView;
 
 public class MessageControler {
-	private List<Message> messages = new ArrayList<>();
-	
-	public void createMessage(String text, User_Login obj) {
-		Message m = new Message(text);
-		if (text != null) {
-			messages.add(m);
-			Message [] mess = new Message[messages.size()];
-			for(int i = 0; i < messages.size(); i++) {
-				mess[i] = (Message) messages.get(i);
-			}
-			m.createMessage(text, obj, mess );
-			System.out.println("Message created!");
-			
-		}else {
-			System.out.println("Message is null");
-		}
+	private Message [] messages;
+	private Message mess;
+	private LoginView loginview;
+	private User_Login ul;
+	public MessageControler() {
+		mess = new Message();
+		loginview = new LoginView();
+		messages = new Message[0];
 		
 	}
 	
+	public void createMessage(String text, User_Login obj) {
+		messages = mess.addMessage(text,obj);
+		obj.addOwnMessage(text, obj);
+		
+	}
+	/*
 	public void deleteMessages(int index) {
 		if (index >= 0 && index < messages.size()) {
 			messages.remove(index);
@@ -35,8 +34,18 @@ public class MessageControler {
 	public List<Message> getAllMessages(){
 		return new ArrayList(messages);
 	}
+	*/
+	public Message [] getAllOwnMessages(User_Login author){
+		return author.getOwnMessages(author);
+	}
 	
-	public String [] getAllOwnMessages(List messages, User_Login author){
-		return author.getOwnMessages(messages, author);
+	public void viewAllMessages() {
+		Message[] messages = mess.getAllMessages();
+		loginview.viewMessages(messages);
+	}
+	
+	public void viewAllOwnMessages(User_Login obj) {
+		Message [] mUser = obj.getOwnMessages(obj);
+		loginview.viewMessages(mUser);
 	}
 }

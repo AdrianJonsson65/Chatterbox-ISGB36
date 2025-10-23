@@ -43,6 +43,10 @@ public class User_Login {
 		
 	}
 	
+	public void setUserName(String uName) {
+		this.username = uName;
+	}
+	
 	public void setPassword(String password) {
 		if(name.length() <= 2) {
 			System.out.println("*Password has to be more than 2 character");
@@ -61,33 +65,27 @@ public class User_Login {
 		return this.password;
 	}
 	
+	public Message [] getMessages() {
+		return this.messages;
+	}
+	
 
 	//Functions
-	public void addOwnMessage(String text) {
+	public void addOwnMessage(String text, User_Login obj) {
 		
 		messages = Arrays.copyOf(messages, messages.length + 1);
-		messages[messages.length - 1].setText(text);
-		messages[messages.length - 1].setAuthor(this.getName());
-		messages[messages.length - 1].setDate(new Date());
-		messages[messages.length - 1].setmId(messages.length -1);
+		Message newMsg = new Message();
+		newMsg.setAuthor(obj);
+		newMsg.setDate(new Date());
+		newMsg.setmId(newMsg.getAllMessages().length);
+		newMsg.setText(text);
+		messages[messages.length - 1] = newMsg;
 	}
 	
 	
 	
-	public String [] getOwnMessages(List messages, User_Login obj){
-		int i = 0;
-		Message [] mess = new Message[messages.size()];
-		for(int j = 0; j < messages.size(); j++) {
-			mess[j] = (Message) messages.get(j);
-		}
-		String [] ownMessages = new String[i];
-		for (Message m : mess) {
-			if(m.getAuthor().equals(obj.getName())) {
-				i++;
-				ownMessages[i-1] = m.toString();
-			}
-		}
-		return ownMessages;
+	public Message [] getOwnMessages(User_Login obj){
+		return obj.getMessages();
 	}
 	
 	public static User_Login []users = {
@@ -96,6 +94,15 @@ public class User_Login {
 			new User_Login("Linus Lokgård", "llokgard", "123", "User"),
 			new User_Login("Adrian Jonsson", "ajonsson", "123", "User")
 	};
+	
+	public User_Login [] getUsers() {
+		return users;
+	}
+	
+	@Override
+	public String toString() {
+		return this.name +  " ";
+	}
 
 
 }
