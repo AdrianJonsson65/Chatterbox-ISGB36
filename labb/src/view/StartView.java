@@ -4,27 +4,35 @@ import java.util.Scanner;
 public class StartView {
 
 	public StartView(final String[] args) {
+<<<<<<< HEAD
 		 LoginView loginview = new LoginView();
 		 GuestView guestview = new GuestView();
+=======
+		LoginView loginview = new LoginView();
+		GuestView guestview = new GuestView();
+>>>>>>> origin/TimmyNew
 		Scanner scan = new Scanner(System.in);
 		int choice = 0;
 		
 		
 		while (choice != 1 && choice != 2) {
 			System.out.println("Choose an option: ");
+			System.out.println("0 - Exit");
 			System.out.println("1 - Login");
 			System.out.println("2 - Continue as Guest");
 			System.out.println("Select option 1 or 2 to Continue");
 			
 			choice = scan.nextInt();
 			switch (choice) {
+			case 0:
+				System.exit(0);
 			case 1:
 				System.out.println("Choice 1 - CONFIRMATION MESSAGE");
 				loginview.login();
 				break;
 			case 2:
 				System.out.println("Choice 2 - CONFIRMATION MESSAGE");
-				//Message.viewAll(); 
+				guestview.ViewAllMessages();
 				break;
 			default:
 				System.out.println("Invalid Choice - CONFIRMATION MESSAGE");

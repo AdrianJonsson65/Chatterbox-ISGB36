@@ -33,7 +33,7 @@ public class LoginView {
 					
 					switch(answer) {
 					case "0":
-						return;
+						System.exit(0);
 					case "1":
 						mcont.viewAllMessages();
 						break;
