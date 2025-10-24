@@ -45,7 +45,7 @@ public class LoginView {
 							if(enter.equals("0")) {
 								break;
 							}else {
-								//mcont.deleteMessage(enter, User);
+								mcont.deleteMessage(enter, User);
 							}
 						}
 						break;

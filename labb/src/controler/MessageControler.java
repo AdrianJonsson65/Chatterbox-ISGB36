@@ -21,26 +21,13 @@ public class MessageControler {
 		obj.addOwnMessage(text, obj);
 		
 	}
-	/*
+	
 	public void deleteMessage(String mId, User_Login obj) {
-		mess.deleteMessage(mId, obj);
-		obj.deleteOwnMessage(mId,obj);
-		
-	}*/
-	/*
-	public void deleteMessages(int index) {
-		if (index >= 0 && index < messages.size()) {
-			messages.remove(index);
-			System.out.println("Message deleted");
-		}else {
-			System.out.println("Invalid index");
-		}
+		messages = mess.deleteMessage(mId, obj);
+		obj.deleteOwnMessage(mId, obj);
 	}
 	
-	public List<Message> getAllMessages(){
-		return new ArrayList(messages);
-	}
-	*/
+
 	public Message [] getAllOwnMessages(User_Login author){
 		return author.getOwnMessages(author);
 	}

@@ -88,27 +88,26 @@ public class Message {
 		messages = newMessages;
 		return newMessages;
 	}
-	/*
+	
 	public Message [] deleteMessage(String mId, User_Login obj) {
 		int id = Integer.parseInt(mId);
-		Message[] delMessages = messages;
-		Message [] newMessages = new Message[messages.length - 2];
-		for (Message m : delMessages) {
-			if(m.getMId() == id && m.getAuthor() == obj) {
-				System.out.println("Message deleted: " + m.toString() );
-				m = null;
-			}else if(id != m.getMId()){
-				System.out.println("Hittade inte id nu\n");
-				newMessages = m.addMessage(m.getText(), obj);
-			}else {
-				System.out.println("else");
-				
+		id -= 1;
+		User_Login author = messages[id].getAuthor();
+		if (author == obj) {
+			Message [] newMessages = new Message[messages.length - 1];
+			for(int i = 0, j = 0; i < messages.length; i ++) {
+				if (i != id) {
+					newMessages[j++] = messages[i];
+				}
 			}
+			messages = null;
+			messages = newMessages;
+		}else {
+			System.out.println("You can only delete your own posts");
 		}
-		messages = newMessages;
-		return newMessages;
+		
+		return messages;
 	}
-	*/
 	
 	public static Message[] messages = {
 		new Message(1,"Hej det är ett test", new Date()),

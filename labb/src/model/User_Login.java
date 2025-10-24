@@ -74,7 +74,7 @@ public class User_Login {
 	}
 
 	//Functions
-	public void addOwnMessage(String text, User_Login obj) {
+	public Message [] addOwnMessage(String text, User_Login obj) {
 		
 		messages = Arrays.copyOf(messages, messages.length + 1);
 		Message newMsg = new Message();
@@ -83,16 +83,21 @@ public class User_Login {
 		newMsg.setmId(newMsg.getAllMessages().length);
 		newMsg.setText(text);
 		messages[messages.length - 1] = newMsg;
+		return messages;
 	}
 	
-	public void deleteOwnMessage(String mId, User_Login obj) {
+	public Message [] deleteOwnMessage(String mId, User_Login obj) {
 		int id = Integer.parseInt(mId);
-		Message [] firstMessages = new Message[(messages.length -2) /2];
-		//Message [] secondMessages = new Message[(messages.length -2) /2];
-		firstMessages = Arrays.copyOfRange(messages, 0, id - 1);
-		//secondMessages = Arrays.copyOfRange(messages, id, messages.length);
-		
-		messages = firstMessages;
+		id -= 1;
+		Message [] newMessages = new Message[messages.length - 1];
+		for(int i = 0, j = 0; i < messages.length; i ++) {
+			if (i != id) {
+				newMessages[j++] = messages[i];
+			}
+		}
+		messages = null;
+		messages = newMessages;
+		return messages;
 	}
 	
 	
