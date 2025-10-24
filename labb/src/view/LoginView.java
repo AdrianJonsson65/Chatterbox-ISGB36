@@ -41,10 +41,10 @@ public class LoginView {
 						mcont.viewAllOwnMessages(User);
 						while(true) {
 							System.out.println("Do you want to delete a message? enter message ID or 0 to continue: ");
-							String enter = scan.next();
-							if(enter.equals("0")) {
+							int enter = scan.nextInt();
+							if(enter == 0) {
 								break;
-							}else {
+							}else if(enter > 0){
 								mcont.deleteMessage(enter, User);
 							}
 						}

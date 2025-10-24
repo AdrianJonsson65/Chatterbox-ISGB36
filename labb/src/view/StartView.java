@@ -5,6 +5,7 @@ public class StartView {
 
 	public StartView(final String[] args) {
 		 LoginView loginview = new LoginView();
+		 GuestView guestview = new GuestView();
 		Scanner scan = new Scanner(System.in);
 		int choice = 0;
 		
