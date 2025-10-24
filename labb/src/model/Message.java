@@ -89,8 +89,8 @@ public class Message {
 		return newMessages;
 	}
 	
-	public Message [] deleteMessage(int mId, User_Login obj) {
-		int id = mId;
+	public Message [] deleteMessage(String mId, User_Login obj) {
+		int id = Integer.parseInt(mId);
 		id -= 1;
 		User_Login author = messages[id].getAuthor();
 		if (author == obj) {

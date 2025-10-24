@@ -4,13 +4,10 @@ import java.util.Scanner;
 public class StartView {
 
 	public StartView(final String[] args) {
-<<<<<<< HEAD
+
 		 LoginView loginview = new LoginView();
 		 GuestView guestview = new GuestView();
-=======
-		LoginView loginview = new LoginView();
-		GuestView guestview = new GuestView();
->>>>>>> origin/TimmyNew
+
 		Scanner scan = new Scanner(System.in);
 		int choice = 0;
 		

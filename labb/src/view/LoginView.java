@@ -41,11 +41,16 @@ public class LoginView {
 						mcont.viewAllOwnMessages(User);
 						while(true) {
 							System.out.println("Do you want to delete a message? enter message ID or 0 to continue: ");
-							int enter = scan.nextInt();
-							if(enter == 0) {
-								break;
-							}else if(enter > 0){
-								mcont.deleteMessage(enter, User);
+							String enter = scan.next();
+							try {
+								int enter2 = Integer.parseInt(enter);
+								if(enter2 == 0) {
+									break;
+								} else if(enter2 > 0){
+									mcont.deleteMessage(enter, User);
+								}
+							} catch(NumberFormatException e){
+								System.out.println("Invalid input");
 							}
 						}
 						break;

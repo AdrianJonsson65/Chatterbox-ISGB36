@@ -22,7 +22,7 @@ public class MessageControler {
 		
 	}
 	
-	public void deleteMessage(int mId, User_Login obj) {
+	public void deleteMessage(String mId, User_Login obj) {
 		messages = mess.deleteMessage(mId, obj);
 		obj.deleteOwnMessage(mId, obj);
 	}
