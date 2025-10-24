@@ -88,13 +88,15 @@ public class User_Login {
 	
 	public Message [] deleteOwnMessage(String mId, User_Login obj) {
 		int id = Integer.parseInt(mId);
-		id -= 1;
 		Message [] newMessages = new Message[messages.length - 1];
-		for(int i = 0, j = 0; i < messages.length; i ++) {
-			if (i != id) {
-				newMessages[j++] = messages[i];
+		int j = 0;
+		for (Message m : obj.getOwnMessages(obj)) {
+			if (id != m.getMId()) {
+				newMessages[j] = m;
+				j++;
 			}
 		}
+		
 		messages = null;
 		messages = newMessages;
 		return messages;
