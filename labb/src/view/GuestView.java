@@ -1,9 +1,24 @@
 package view;
 
 import controler.MessageControler;
+import model.Message;
+
 import java.util.*;
 
 public class GuestView {
+	
+	public void viewMessages(Message[] messages) {
+		if(messages.length == 0) {
+			System.out.println("No message created!");
+		}else {
+			System.out.println("Output\n");
+			for(Message m : messages) {
+				System.out.println("Message: " + m.toString());
+			}
+		}
+		
+	}
+	
 	public void ViewAllMessages() {
 		LoginView loginview = new LoginView();
 		while(true) {

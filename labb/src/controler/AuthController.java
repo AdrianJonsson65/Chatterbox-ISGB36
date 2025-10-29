@@ -2,12 +2,13 @@ package controler;
 import model.User_Login;
 
 public class AuthController {
-	public static User_Login ConfirmLogin(String username, String password) {
-		for (User_Login UL : User_Login.users) {
-			if (UL.getUsername().equals(username) && UL.getPassword().equals(password)) {
-				return UL;
-			}
-		}
-		return null;
+	private User_Login ul;
+	public AuthController() {
+		ul = new User_Login();
+	}
+	
+	public User_Login ConfirmLogin() {
+		ul = ul.login();
+		return ul;
 	}
 }

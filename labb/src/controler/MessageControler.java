@@ -8,7 +8,7 @@ public class MessageControler {
 	private Message [] messages;
 	private Message mess;
 	private LoginView loginview;
-	private User_Login ul;
+	
 	public MessageControler() {
 		mess = new Message();
 		loginview = new LoginView();

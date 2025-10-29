@@ -24,12 +24,9 @@ public class LoginView {
 	public void login() {
 		Scanner scan = new Scanner(System.in);
 		while(true) {
-			System.out.println("Ange username");
-			String username = scan.next();
-			System.out.println("Ange password");
-			String password = scan.next();
-			User_Login User = AuthController.ConfirmLogin(username, password);
+			AuthController acont = new AuthController();
 			MessageControler mcont = new MessageControler();
+			User_Login User = acont.ConfirmLogin();
 			if (User != null) {
 				System.out.println("Welcome " + User.getName());
 				while(true) {

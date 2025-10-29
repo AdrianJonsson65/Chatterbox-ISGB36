@@ -3,7 +3,7 @@ import java.util.Scanner;
 //View for the start interface which allows user login or to continue as a guest depending on the choice made.
 public class StartView {
 
-	public StartView(final String[] args) {
+	public StartView() {
 
 		 LoginView loginview = new LoginView();
 		 GuestView guestview = new GuestView();

@@ -23,6 +23,8 @@ public class User_Login {
 		messages = new Message[0];
 	}
 	
+	public User_Login() {}
+	
 
 	
 	//Setters
@@ -104,7 +106,19 @@ public class User_Login {
 	
 	
 	
-	
+	public User_Login login() {
+		Scanner scan = new Scanner(System.in);
+			System.out.println("Ange username");
+			String username = scan.next();
+			System.out.println("Ange password");
+			String password = scan.next();
+		for (User_Login UL : User_Login.users) {
+			if (UL.getUsername().equals(username) && UL.getPassword().equals(password)) {
+				return UL;
+			}
+		}
+		return null;
+	}
 	
 	public static User_Login []users = {
 			new User_Login("John Nash", "jnash", "123", "User"),
