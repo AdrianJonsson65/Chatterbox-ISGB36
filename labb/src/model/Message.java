@@ -86,6 +86,7 @@ public class Message {
 		newMsg.createMessage(text, user, messages);
 		newMessages[newMessages.length - 1] = newMsg;
 		messages = newMessages;
+		System.out.println("Message added!");
 		return newMessages;
 	}
 	
@@ -102,6 +103,7 @@ public class Message {
 			}
 			messages = null;
 			messages = newMessages;
+			System.out.println("Message deleted!");
 		}else {
 			System.out.println("You can only delete your own posts");
 		}

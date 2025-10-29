@@ -10,10 +10,15 @@ public class LoginView {
 	public LoginView() {}
 	
 	public void viewMessages(Message[] messages) {
-		System.out.println("Output\n");
-		for(Message m : messages) {
-			System.out.println("Message: " + m.toString());
+		if(messages.length == 0) {
+			System.out.println("No message created!");
+		}else {
+			System.out.println("Output\n");
+			for(Message m : messages) {
+				System.out.println("Message: " + m.toString());
+			}
 		}
+		
 	}
 	
 	public void login() {
@@ -40,8 +45,15 @@ public class LoginView {
 					case "2":
 						mcont.viewAllOwnMessages(User);
 						while(true) {
-							System.out.println("Do you want to delete a message? enter message ID or 0 to continue: ");
-							String enter = scan.next();
+							String enter;
+							if (User.getOwnMessages(User).length == 0) {
+								System.out.println("0 to continue");
+								enter = scan.next();
+							}else {
+								System.out.println("Do you want to delete a message? enter message ID or 0 to continue: ");
+								enter = scan.next();
+							}
+							
 							try {
 								int enter2 = Integer.parseInt(enter);
 								if(enter2 == 0) {
