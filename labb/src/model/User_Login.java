@@ -1,6 +1,7 @@
 package model;
-import java.util.*;
-
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Scanner;
 public class User_Login {
 
 	private String name;
@@ -66,7 +67,7 @@ public class User_Login {
 	public String getPassword() {
 		return this.password;
 	}
-	
+	/*
 	public Message [] getMessages() {
 		return this.messages;
 	}
@@ -76,6 +77,7 @@ public class User_Login {
 	}
 
 	//Functions
+	
 	public Message [] addOwnMessage(String text, User_Login obj) {
 		
 		messages = Arrays.copyOf(messages, messages.length + 1);
@@ -102,17 +104,20 @@ public class User_Login {
 		messages = null;
 		messages = newMessages;
 		return messages;
-	}
+	}*/
 	
 	
 	
-	public User_Login login() {
+	public User_Login login() throws SQLException {
+		DAO dao = new DAO();
 		Scanner scan = new Scanner(System.in);
 			System.out.println("Ange username");
 			String username = scan.next();
 			System.out.println("Ange password");
 			String password = scan.next();
-		for (User_Login UL : User_Login.users) {
+			ArrayList<User_Login> users = new ArrayList<>();
+			users = dao.getAllUsers();
+		for (User_Login UL : users) {
 			if (UL.getUsername().equals(username) && UL.getPassword().equals(password)) {
 				return UL;
 			}
@@ -120,14 +125,12 @@ public class User_Login {
 		return null;
 	}
 	
-	public static User_Login []users = {
-			new User_Login("John Nash", "jnash", "123", "User"),
-			new User_Login("Timmy Hjelm", "thjelm", "123", "User"),
-			new User_Login("Linus Lokgård", "llokgard", "123", "User"),
-			new User_Login("Adrian Jonsson", "ajonsson", "123", "User")
-	};
 	
-	public User_Login [] getUsers() {
+	
+	public ArrayList<User_Login> getUsers()throws SQLException {
+		DAO dao = new DAO();
+		ArrayList<User_Login> users = new ArrayList<>();
+		users = dao.getAllUsers();
 		return users;
 	}
 	
@@ -135,6 +138,17 @@ public class User_Login {
 	public String toString() {
 		return this.name +  " ";
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+	    if (this == obj) return true; 
+	    if (obj == null || getClass() != obj.getClass())
+	        return false;
+
+	    User_Login ul = (User_Login) obj;
+	    return this.username.equals(ul.username);
+	}
+
 
 
 }

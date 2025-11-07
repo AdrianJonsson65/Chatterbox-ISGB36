@@ -1,4 +1,6 @@
 package view;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -9,8 +11,8 @@ public class LoginView {
 	
 	public LoginView() {}
 	
-	public void viewMessages(Message[] messages) {
-		if(messages.length == 0) {
+	public void viewMessages(ArrayList<Message> messages) {
+		if(messages.size() == 0) {
 			System.out.println("No message created!");
 		}else {
 			System.out.println("Output\n");
@@ -21,7 +23,7 @@ public class LoginView {
 		
 	}
 	
-	public void login() {
+	public void login() throws SQLException {
 		Scanner scan = new Scanner(System.in);
 		while(true) {
 			AuthController acont = new AuthController();
@@ -43,7 +45,10 @@ public class LoginView {
 						mcont.viewAllOwnMessages(User);
 						while(true) {
 							String enter;
-							if (User.getOwnMessages(User).length == 0) {
+							DAO dao = new DAO();
+							ArrayList<Message> messages = new ArrayList<>();
+							messages = dao.getAllMessages();
+							if (dao.getAllMessagesByUser(User).size() == 0) {
 								System.out.println("0 to continue");
 								enter = scan.next();
 							}else {

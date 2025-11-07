@@ -1,9 +1,10 @@
 package view;
+import java.sql.SQLException;
 import java.util.Scanner;
 //View for the start interface which allows user login or to continue as a guest depending on the choice made.
 public class StartView {
 
-	public StartView() {
+	public StartView() throws SQLException {
 
 		 LoginView loginview = new LoginView();
 		 GuestView guestview = new GuestView();

@@ -3,6 +3,7 @@ package view;
 import controler.MessageControler;
 import model.Message;
 
+import java.sql.SQLException;
 import java.util.*;
 
 public class GuestView {
@@ -19,7 +20,7 @@ public class GuestView {
 		
 	}
 	
-	public void ViewAllMessages() {
+	public void ViewAllMessages() throws SQLException {
 		LoginView loginview = new LoginView();
 		while(true) {
 			MessageControler mcont = new MessageControler();

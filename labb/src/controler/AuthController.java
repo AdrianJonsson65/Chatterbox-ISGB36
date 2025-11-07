@@ -1,4 +1,6 @@
 package controler;
+import java.sql.SQLException;
+
 import model.User_Login;
 
 public class AuthController {
@@ -7,7 +9,7 @@ public class AuthController {
 		ul = new User_Login();
 	}
 	
-	public User_Login ConfirmLogin() {
+	public User_Login ConfirmLogin() throws SQLException {
 		ul = ul.login();
 		return ul;
 	}
