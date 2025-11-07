@@ -7,7 +7,7 @@ public class Message {
 	private String text;
 	private User_Login author;
 	private Date date;
-	User_Login user;
+	//User_Login user;
 	
 	//Constructors
 	public Message(int mId,String text, User_Login author, Date date) {
