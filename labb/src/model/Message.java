@@ -117,7 +117,7 @@ public class Message {
 	}
 	
 	
-	// Behöver fixas, man kommer inte in i if satsen utan else körs varje gång
+	// Behöver fixas, man kommer inte in i if satsen utan else körs varje gång. Klar tror jag, AJ
 	public ArrayList<Message> deleteMessage(String mId, User_Login obj) throws SQLException {
 		DAO dao = new DAO();
 		ArrayList<Message> messages = dao.getAllMessages();
@@ -126,7 +126,13 @@ public class Message {
 		User_Login author = messages.get(id).getAuthor();
 		if (author.equals(obj)) {
 			messages.remove(id);
-			System.out.println("Message deleted!");
+			int deleteStatus = dao.deleteMessage(mId);
+			if(deleteStatus == 1) {
+				System.out.println("Message deleted!");
+			}else {
+				System.out.println("Message not deleted!");
+			}
+			
 		}else {
 			System.out.println("You can only delete your own posts");
 		}
