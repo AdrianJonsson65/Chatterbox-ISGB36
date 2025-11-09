@@ -122,10 +122,16 @@ public class Message {
 		DAO dao = new DAO();
 		ArrayList<Message> messages = dao.getAllMessages();
 		int id = Integer.parseInt(mId);
-		id -= 1;
-		User_Login author = messages.get(id).getAuthor();
-		if (author.equals(obj)) {
-			messages.remove(id);
+		//id -= 1;
+		User_Login mAuthor = new User_Login();
+		for(Message m: messages) {
+			if(m.getMId()== id) {
+				mAuthor = m.getAuthor();
+			}
+		}
+		
+		if (mAuthor.equals(obj)) {
+			//messages.remove(id);
 			int deleteStatus = dao.deleteMessage(mId);
 			if(deleteStatus == 1) {
 				System.out.println("Message deleted!");
