@@ -150,7 +150,7 @@ public class Message {
 	
 	@Override
 	public String toString() {
-		return this.mId + "\n Published by: " + this.author + "\n " + this.text + "\n " + this.date + "; \n";
+		return this.mId + "\n Published by: " + getAuthor() + "\n " + getText() + "\n " + getDate() + "; \n";
 	}
 	
 	@Override
